@@ -31,7 +31,8 @@ const initiValues =
     name : "Test",
     email : "test@gmail.com",
     password : "123456",
-    password2 : "123456"
+    password2 : "123456",
+    postsLiked : []
 };
 
 const [ formValues, handleInputChange, reset ] =  useForm( initiValues ) ;

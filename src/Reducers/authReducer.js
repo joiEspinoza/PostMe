@@ -6,6 +6,7 @@ const initialState =
 {
     uid : null,
     name : null,
+    postsLiked : [],
     logged : false
 
 };

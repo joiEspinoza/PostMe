@@ -96,9 +96,30 @@ const startLoginAction = ( user ) =>
 const loginAction = ( user ) => ( { type : types.authLogin, payload : user } );
 
 
+const starRegisterLike = ( postsLiked, uid ) =>
+{
+    return async ( dispatch ) =>
+    {
+        try 
+        {
+            const request = await BackendConnect( "auth", { postsLiked, uid }, "PUT" );
+
+            const response = await request.json();
+
+            dispatch( loginAction( response.userLogged ) );
+
+        } 
+        catch( error ) 
+        {
+            console.log( error )
+            return alert( "Something went wrong" );   
+        };
+    };
+}
+
 const logoutAction = () => ( { type : types.authLogout } );
 
 
 //////---------------------------------------------->>>>>
 
-export { startRegisterAction, startLoginAction, logoutAction };
+export { startRegisterAction, startLoginAction, logoutAction, starRegisterLike };

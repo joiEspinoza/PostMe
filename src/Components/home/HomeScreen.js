@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startRegisterPost } from '../../Actions/postActions';
 import { useForm } from '../../Hook/useForm';
+import Post from '../ui/Post';
 
 //////<<<<<------------------------------------------------``
 
@@ -94,85 +95,9 @@ const HomeScreen = () =>
                         <hr/>
 
                         
-
                         <div className="row mt-2">
 
-                            <div className="col-md-3 postBox">
-
-                                <div className="card cardPost">
-
-                                    <div className="card-body">
-
-                                        <input type="text" className="form-control"/>
-                                        <textarea className="form-control mt-2" ></textarea>
-
-                                    </div>
-
-                                    <div className="card-footer">
-
-                                        <div className="row">
-
-                                            <div className="col-md-4">
-                                                
-                                                <button className="btn btnLogout form-control"><i className="fa fa-retweet" aria-hidden="true"></i></button>
-
-                                            </div>
-
-                                            <div className="col-md-4">
-
-                                                <button className="btn btnLogout form-control"><i className="fa fa-trash" aria-hidden="true"></i></button>
-
-                                            </div>
-
-                                            <div className="col-md-4 text-center">
-
-                                                <span className="like form-control">♥ 0</span>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-
-                            <div className="col-md-3 postBox">
-
-                                <div className="card cardPost">
-
-                                    <div className="card-body">
-                                        This is some text within a card body.
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-
-                            <div className="col-md-3 postBox">
-
-                                <div className="card cardPost">
-
-                                    <div className="card-body">
-                                        This is some text within a card body.
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-
-                            <div className="col-md-3 postBox">
-
-                                <div className="card cardPost">
-
-                                    <div className="card-body">
-                                        This is some text within a card body.
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
+                            <Post/>
 
                         </div>
 

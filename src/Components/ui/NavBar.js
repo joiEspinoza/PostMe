@@ -22,7 +22,7 @@ const NavBar = () =>
 
         <nav className="navbar navbar-light bg-light justify-content-between">
 
-            <span className="navbar-brand"><img alt="logo" className="logo" src="./IMG/logo.png" /></span>
+            <span className="navbar-brand"><img alt="logo" className="logo" src="https://res.cloudinary.com/djlmqpd2n/image/upload/v1608948585/PostMe/logo_sbmxek.png" /></span>
 
             <span>
 

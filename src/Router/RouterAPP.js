@@ -1,5 +1,7 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
+import { startLoadPosts } from '../Actions/postActions';
 import LoginScreen from '../Components/auth/LoginScreen';
 import RegisterScreen from '../Components/auth/RegisterScreen';
 import HomeScreen from '../Components/home/HomeScreen';
@@ -12,8 +14,22 @@ import PublicRoute from './PublicRoute';
 const RouterAPP = () => 
 {   
 
-    const { logged } = useSelector( state => state.auth );
+////////////////////// CARGA DATA POST //////////////////////
 
+    const { logged } = useSelector( state => state.auth );
+    
+    const dispatch = useDispatch();
+
+    useEffect( () => 
+    {
+        if( logged )
+        {
+            dispatch( startLoadPosts() ); 
+        };
+
+    }, [ logged, dispatch ] );
+
+/////////////////////////////////////////////////////////////////
 
 //************************************************************************************************************ */
 
