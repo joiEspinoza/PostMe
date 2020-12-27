@@ -8,9 +8,8 @@ import { startDeletePost, setActivePost, startUpdateLike } from '../../Actions/p
 const Post = () => 
 {
 
-    const { posts, activePost } = useSelector( state => state.post );
-
-    const { uid, postsLiked } = useSelector( state => state.auth );
+    
+////////////////////// BTN DELETE /////////////////////////
 
     const dispatch = useDispatch();
 
@@ -19,23 +18,52 @@ const Post = () =>
         dispatch( startDeletePost( postId ) );
     };
 
+////////////////////////////////////////////////////////
+
+
+
+////////////////////// LIKE /////////////////////////
+
+
+    const { posts, activePost } = useSelector( state => state.post );
+
+    const { uid, postsLiked } = useSelector( state => state.auth );
+
     const handleUpdateLike = ( post, like ) =>
     {
+
         dispatch( setActivePost( post ) );
 
         if( !postsLiked.find( ( id ) => id === activePost._id ) )
         {
-            const newPostsLiked = [ ...postsLiked, activePost._id ];
 
+        //---------\\ UPDATE LIKED USER //---------\\ 
+
+            const newPostsLiked = [ ...postsLiked, activePost._id ];
+       
             dispatch( starRegisterLike( newPostsLiked, uid ) );
+
+        //-------------------------------------\\ 
+
+
+        //---------\\ UPDATE LIKE POST //---------\\ 
 
             const newLike = like + 1;
 
             dispatch( startUpdateLike( newLike, activePost._id ) );
 
+        //-------------------------------------\\ 
+
+
+        }
+        else
+        {
+            return;
         };
 
     };
+
+////////////////////////////////////////////////////////
 
 
 /************************************************************************************************** */
@@ -53,8 +81,8 @@ const Post = () =>
 
                         <div className="card-body no_selection ">
 
-                            <input disabled={ true } type="text" className="inputDisabled form-control" name="titlePost" defaultValue={ post.titlePost } autoComplete="off" />
-                            <textarea disabled={ true } className="inputDisabled form-control mt-2" name="bodyPost" defaultValue={ post.bodyPost } autoComplete="off" ></textarea>
+                            <input disabled={ true } type="text" className="inputDisabled form-control text-center" name="titlePost" defaultValue={ post.titlePost } autoComplete="off" />
+                            <textarea disabled={ true } className="inputDisabled form-control mt-2 text-center" name="bodyPost" defaultValue={ post.bodyPost } autoComplete="off" ></textarea>
 
                         </div>
 
@@ -84,7 +112,7 @@ const Post = () =>
 
                 </div>
 
-            } )  
+            } ) 
         }
 
         </>
@@ -96,4 +124,4 @@ const Post = () =>
 
 //////---------------------------------------------->>>>>
 
-export default Post
+export default Post;

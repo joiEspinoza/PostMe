@@ -9,12 +9,16 @@ const NavBar = () =>
 
     //const { name } = useSelector( state => state.auth );
 
+////////////////////// LOGOUT //////////////////////
+
     const dispatch = useDispatch();
 
     const handleLogout = () =>
     {
         dispatch( logoutAction() );
-    }
+    };
+
+//////////////////////////////////////////////////////
 
 /******************************************************************************************************* */
 
@@ -31,7 +35,6 @@ const NavBar = () =>
             </span>
 
         </nav>
-
 
     );
 };

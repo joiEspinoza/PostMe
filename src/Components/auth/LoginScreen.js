@@ -86,4 +86,4 @@ const handleLogin = ( event ) =>
 
 //////---------------------------------------------->>>>>
 
-export default LoginScreen
+export default LoginScreen;

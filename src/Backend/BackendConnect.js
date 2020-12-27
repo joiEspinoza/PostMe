@@ -11,7 +11,7 @@ const BackendConnect = ( endpoint, data, method = "GET" ) =>
     
     const url = `${ baseUrl }/${ endpoint }`; //localhost:4030/api/auth/
 
-    console.log( url );
+    //console.log( url );
 
     if( method === "GET" )
     {

@@ -57,9 +57,9 @@ const startLoginAction = ( user ) =>
 
         try 
         {
-           const request =  await BackendConnect( "auth", user, "POST" );
+           const request =  await BackendConnect( "auth", user, "POST" );//-->
 
-           const response = await request.json();
+           const response = await request.json();//<---
 
            if( response.ok )
            {

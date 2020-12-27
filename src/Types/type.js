@@ -7,6 +7,7 @@ const types =
 
     postLoad : "[POST] load post",
     postSetActive : "[POST] set active post"
+    
 };
 
 //////---------------------------------------------->>>>>

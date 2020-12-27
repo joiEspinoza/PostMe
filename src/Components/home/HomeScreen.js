@@ -9,7 +9,7 @@ import Post from '../ui/Post';
 const HomeScreen = () => 
 {
 
-////////////////////// Registro Post //////////////////////
+////////////////////// REGISTER POST //////////////////////
 
     const { uid } = useSelector( state => state.auth );
 
@@ -53,6 +53,9 @@ const HomeScreen = () =>
 
                 <div className="col-md-2 sideBar">
 
+                    {/*********************************************************/}
+                    {/*********************************************************/}
+                    
                 </div>
 
                 <div className="col-md-10">
