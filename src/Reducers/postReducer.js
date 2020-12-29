@@ -5,7 +5,8 @@ import { types } from "../Types/type";
 const initialState = 
 {
     posts : [],
-    category : ""
+    categories : [],
+    activeCategory : ""
 };
 
 
@@ -15,7 +16,9 @@ const postReducer = ( state = initialState, action ) =>
     {
         case types.postLoad : return { ...state, posts : [ ...action.payload ] };
 
-        case types.postSetCategory : return { ...state, category : action.payload };
+        case types.postSetActiveCategory : return { ...state, activeCategory : action.payload };
+
+        case types.postLoadCategories : return { ...state, categories : [ ...action.payload ] };
 
         case types.clean : return { ...state, ...initialState };
         

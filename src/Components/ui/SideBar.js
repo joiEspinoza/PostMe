@@ -7,7 +7,7 @@ import { setCategory } from '../../Actions/postActions';
 const SideBar = () => 
 {
 
-    const { category } = useSelector( state => state.post );
+    const { activeCategory } = useSelector( state => state.post );
 
     const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ const SideBar = () =>
         <>
             <div className="col-md-2 sideBar">
 
-                { category === "" ? 
+                { activeCategory === "" ? 
 
                     <i className="fa fa-plus-circle mt-5 pointer" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-hidden="true">
                         <p className="textAdd">Add category</p>

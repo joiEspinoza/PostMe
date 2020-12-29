@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
+import { startLoadCategories } from '../Actions/categoryActions';
 import { startLoadPosts } from '../Actions/postActions';
 import LoginScreen from '../Components/auth/LoginScreen';
 import RegisterScreen from '../Components/auth/RegisterScreen';
@@ -25,6 +26,7 @@ const RouterAPP = () =>
         if( logged )
         {
             dispatch( startLoadPosts() ); 
+            dispatch( startLoadCategories() );
         };
 
     }, [ logged, dispatch ] );

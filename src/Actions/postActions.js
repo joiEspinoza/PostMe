@@ -125,7 +125,7 @@ const startDeletePost = ( postId ) =>
     };
 };
 
-const setCategory = ( category ) => ( { type : types.postSetCategory, payload : category } );
+const setCategory = ( category ) => ( { type : types.postSetActiveCategory, payload : category } );
 
 
 //////---------------------------------------------->>>>>

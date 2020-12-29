@@ -9,7 +9,7 @@ import SideBar from '../ui/SideBar';
 const HomeScreen = () => 
 {
 
-    const { category } = useSelector( state => state.post );
+    const { activeCategory } = useSelector( state => state.post );
 
     return (
 
@@ -18,7 +18,7 @@ const HomeScreen = () =>
 
                 <SideBar/>
 
-                { category === "" ? <Categories/> : <Category/> }
+                { activeCategory === "" ? <Categories/> : <Category/> }
                 
             </div>
 

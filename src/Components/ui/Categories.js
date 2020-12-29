@@ -1,11 +1,14 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '../../Actions/postActions';
+
 
 //////<<<<<------------------------------------------------``
 
 const Categories = () => 
 {
+
+    const { categories } = useSelector( state => state.post );
 
 
 ////////////////////// BTN CATEGORY //////////////////////
@@ -31,13 +34,22 @@ const Categories = () =>
 
                 <div className="row">
 
-                    <div className="col-md-3">
-                        
-                        <button onClick={ ()=>{ handleChangeCategory( "informatica" ) } }>informatica</button>
-                        
-                    </div>
+                    {
+                
+                        categories.map( ( categoryArray ) => {  
 
+
+                            return  <div key={ categoryArray._id } className="col-md-3">
+                                
+                                        <button className="btn btn-primary form-control mt-4" onClick={ ()=>{ handleChangeCategory( categoryArray.category ) } } >{ categoryArray.category }</button>
+
+                                    </div>
+                        } )
+                    }
+                        
                 </div>
+
+               
 
             </div>
             

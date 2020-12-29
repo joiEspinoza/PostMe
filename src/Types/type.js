@@ -2,13 +2,14 @@
 const types =
 {
     authLogin : "[AUTH] Login",
-    authRegister : "[AUTH] register",
-    authLogout : "[AUTH] logout",
+    authRegister : "[AUTH] Register",
+    authLogout : "[AUTH] Logout",
 
-    postLoad : "[POST] load post",
-    postSetCategory : "[POST] set category",
+    postLoad : "[POST] Load post",
+    postSetActiveCategory : "[POST] Set active category",
+    postLoadCategories : "[POST] Load categories",
  
-    clean : "[CLEAN] clean all states"
+    clean : "[CLEAN] Clean all states"
     
 };
 
