@@ -6,7 +6,9 @@ const types =
     authLogout : "[AUTH] logout",
 
     postLoad : "[POST] load post",
-    postSetActive : "[POST] set active post"
+    postSetCategory : "[POST] set category",
+ 
+    clean : "[CLEAN] clean all states"
     
 };
 

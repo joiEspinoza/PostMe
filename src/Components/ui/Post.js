@@ -1,66 +1,83 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { starRegisterLike } from '../../Actions/authActions';
-import { startDeletePost, setActivePost, startUpdateLike } from '../../Actions/postActions';
+import { startDeletePost, startUpdateLike  } from '../../Actions/postActions';
 
 //////<<<<<------------------------------------------------``
 
 const Post = () => 
 {
 
-    
-////////////////////// BTN DELETE /////////////////////////
+////////////////////// LIKE /////////////////////////
+
+
+    const { posts } = useSelector( state => state.post );
+
+    const { uid, postsLiked } = useSelector( state => state.auth );
 
     const dispatch = useDispatch();
 
-    const handleDeletePost = ( postId ) =>
+    const handleUpdateLike = ( postId, like ) =>
     {
-        dispatch( startDeletePost( postId ) );
+
+        const result = postsLiked.find( ( id ) => id === postId );
+     
+
+        if( !result )
+        {
+
+            //---------\\ UPDATE LIKED USER //---------\\ 
+
+            const newPostsLiked = [ ...postsLiked, postId ];
+       
+            dispatch( starRegisterLike( newPostsLiked, uid ) );
+
+            //-------------------------------------\\
+
+
+            //---------\\ UPDATE LIKE POST //---------\\ 
+
+            const newLike = like + 1;
+
+            dispatch( startUpdateLike( newLike, postId ) );
+
+            //-------------------------------------\\ 
+
+        };
+
+    };
+
+    const handleColorLike = ( postId ) =>
+    {
+        const result = postsLiked.find( ( id ) => id === postId ); 
+
+        if( result )
+        {
+            return "text-danger"
+        };
+
     };
 
 ////////////////////////////////////////////////////////
 
 
 
-////////////////////// LIKE /////////////////////////
 
+////////////////////// BTN DELETE /////////////////////////
 
-    const { posts, activePost } = useSelector( state => state.post );
-
-    const { uid, postsLiked } = useSelector( state => state.auth );
-
-    const handleUpdateLike = ( post, like ) =>
+    
+    const handleDeletePost = ( postId ) =>
     {
+        
+        let purgePostsLiked = [];
 
-        dispatch( setActivePost( post ) );
+        purgePostsLiked = 
+        [ ...postsLiked.filter( ( id ) => id !== postId  ) ];
+     
+        dispatch( starRegisterLike( purgePostsLiked, uid ) );
 
-        if( !postsLiked.find( ( id ) => id === activePost._id ) )
-        {
-
-        //---------\\ UPDATE LIKED USER //---------\\ 
-
-            const newPostsLiked = [ ...postsLiked, activePost._id ];
-       
-            dispatch( starRegisterLike( newPostsLiked, uid ) );
-
-        //-------------------------------------\\ 
-
-
-        //---------\\ UPDATE LIKE POST //---------\\ 
-
-            const newLike = like + 1;
-
-            dispatch( startUpdateLike( newLike, activePost._id ) );
-
-        //-------------------------------------\\ 
-
-
-        }
-        else
-        {
-            return;
-        };
-
+        dispatch( startDeletePost( postId ) );
+           
     };
 
 ////////////////////////////////////////////////////////
@@ -94,13 +111,13 @@ const Post = () =>
                                 <div className="col-md-8 btnAling">
                                 { 
                                     post.user._id === uid && 
-                                    <button onClick={ () => { handleDeletePost( post._id ) } } className="btn btnLogout"><i className="fa fa-trash" aria-hidden="true"></i></button>
+                                    <button onClick={ () => { handleDeletePost( post._id ) } } className="btn btnLogout form-control"><i className="fa fa-trash" aria-hidden="true"></i></button>
                                 }
                                 </div>
 
                                 <div className="col-md-4 text-center">
 
-                                    <span onClick={ () => { handleUpdateLike( post, post.likePost ) } } className="like form-control">♥ { post.likePost }</span>
+                                    <span onClick={ () => { handleUpdateLike( post._id, post.likePost ) } } className={`like form-control ${ handleColorLike( post._id ) }`}>{ `♥ ${ post.likePost }` }</span>
 
                                 </div>
 

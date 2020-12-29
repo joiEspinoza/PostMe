@@ -15,9 +15,7 @@ const startRegisterPost = ( post ) =>
             
             if( response.ok )
             {
-                dispatch( startLoadPosts() );
-                
-                dispatch( setActivePost( response.post ) );
+                dispatch( startLoadPosts() );  
             }
             else
             {
@@ -127,9 +125,17 @@ const startDeletePost = ( postId ) =>
     };
 };
 
-const setActivePost = ( post ) => ( { type : types.postSetActive, payload : post  } );
+const setCategory = ( category ) => ( { type : types.postSetCategory, payload : category } );
 
 
 //////---------------------------------------------->>>>>
 
-export { startRegisterPost, startLoadPosts, startDeletePost, setActivePost, startUpdateLike };
+export { 
+    
+    startRegisterPost, 
+    startLoadPosts, 
+    startDeletePost, 
+    startUpdateLike,
+    setCategory
+    
+};

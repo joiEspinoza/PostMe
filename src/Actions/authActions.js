@@ -117,9 +117,16 @@ const starRegisterLike = ( postsLiked, uid ) =>
     };
 }
 
+
 const logoutAction = () => ( { type : types.authLogout } );
 
 
 //////---------------------------------------------->>>>>
 
-export { startRegisterAction, startLoginAction, logoutAction, starRegisterLike };
+export 
+{ 
+    startRegisterAction, 
+    startLoginAction, 
+    logoutAction, 
+    starRegisterLike
+};

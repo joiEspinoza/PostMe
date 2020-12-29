@@ -18,6 +18,8 @@ const authReducer = ( state = initialState, action ) =>
         case types.authLogin : return { ...state, ...action.payload  };
 
         case types.authLogout : return { ...state, ...initialState };
+
+        case types.clean : return { ...state, ...initialState };
         
         default: return state;
     };

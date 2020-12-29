@@ -1,13 +1,14 @@
 import React from 'react';
-import { useDispatch, /*useSelector*/ } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logoutAction } from '../../Actions/authActions';
+import { cleanState } from '../../Actions/cleanAction';
 
 //////<<<<<------------------------------------------------``
 
 const NavBar = () => 
 {
 
-    //const { name } = useSelector( state => state.auth );
+    const { name } = useSelector( state => state.auth );
 
 ////////////////////// LOGOUT //////////////////////
 
@@ -15,6 +16,7 @@ const NavBar = () =>
 
     const handleLogout = () =>
     {
+        dispatch( cleanState() );
         dispatch( logoutAction() );
     };
 
@@ -24,13 +26,20 @@ const NavBar = () =>
 
     return (
 
-        <nav className="navbar navbar-light bg-light justify-content-between">
+        <nav className="navbar navbar-light bg-light">
 
             <span className="navbar-brand"><img alt="logo" className="logo" src="https://res.cloudinary.com/djlmqpd2n/image/upload/v1608948585/PostMe/logo_sbmxek.png" /></span>
 
-            <span>
+            <span className="logoutBox">
 
-                <button onClick={ handleLogout } className="btn btnLogout my-2 my-sm-0"> Logout </button>
+                <div className="input-group">
+
+                    <input type="text" disabled={ true } className="userNameInput form-control" defaultValue={ name }/>
+                    <div className="input-group-append">
+                        <button onClick={ handleLogout } className="btn btnLogout my-2 my-sm-0">Logout</button>
+                    </div>
+
+                </div>
 
             </span>
 
