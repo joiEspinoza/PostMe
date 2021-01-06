@@ -11,7 +11,7 @@ const Post = () =>
 ////////////////////// LIKE /////////////////////////
 
 
-    const { posts } = useSelector( state => state.post );
+    let { posts, activeCategory } = useSelector( state => state.post );
 
     const { uid, postsLiked } = useSelector( state => state.auth );
 
@@ -53,7 +53,7 @@ const Post = () =>
 
         if( result )
         {
-            return "text-danger"
+            return "text-danger";
         };
 
     };
@@ -83,6 +83,17 @@ const Post = () =>
 ////////////////////////////////////////////////////////
 
 
+
+
+////////////////////// FILTRO /////////////////////////
+
+    posts = [ ...posts.filter( ( post ) => 
+    post.categoryPost === activeCategory.categoryTitle ) ];
+
+////////////////////////////////////////////////////////
+
+
+
 /************************************************************************************************** */
 
     return (
@@ -103,7 +114,7 @@ const Post = () =>
 
                         </div>
 
-                        <div className="card-footer">
+                        <div className="card-footer" style={ { backgroundColor : activeCategory.color  } }>
 
                             <div className="row">
 
@@ -111,7 +122,7 @@ const Post = () =>
                                 <div className="col-md-8 btnAling">
                                 { 
                                     post.user._id === uid && 
-                                    <button onClick={ () => { handleDeletePost( post._id ) } } className="btn btnLogout form-control"><i className="fa fa-trash" aria-hidden="true"></i></button>
+                                    <button onClick={ () => { handleDeletePost( post._id ) } } className="btn btn-dark btnDeletePost form-control" ><i className="fa fa-trash" aria-hidden="true"></i></button>
                                 }
                                 </div>
 

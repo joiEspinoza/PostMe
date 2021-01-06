@@ -1,10 +1,10 @@
 html,body
 {
-    background-color: #fa9031;
+    background-color: #151515;
     color: white;
     font-family: 'Times New Roman', Times, serif;
     overflow-x: hidden;
-
+    padding-right: 0px !important;
 
 }
 
@@ -68,6 +68,7 @@ html,body
 .navbar
 {
     padding: 14px;
+    background-color: #535252 !important;
 }
 
 .navbar-brand
@@ -106,7 +107,6 @@ html,body
     background-color: white;
     width: 100px !important;
     text-align: center;
-    
 }
 
 /*****************************************************************/
@@ -117,21 +117,63 @@ html,body
 .sideBar
 {
     height: 100vh;
-    background-color: #efefef; 
+    background-color: #363636; 
     color: #fa9031;
-    font-size: 90px;
+    font-size: 80px;
+    padding-left: 2%;
+    padding-top: 2%;
     text-align: center;
+
 }
 
-.pointer
+.pointerAddCategory
 {
     cursor: pointer;
 }
 
+.pointerAddCategory:hover
+{
+    color: white;
+}
+
 .textAdd
 {
-    font-size: 20px !important;
+    font-size: 15px !important;
 }
+
+.categoryName[disable]
+{
+    background-color: white;
+    text-align: center;
+}
+
+.sideButton
+{
+    background-color: transparent !important;
+    border: 1px solid #fa9031 !important;
+    color : #fa9031 !important;
+}
+
+.sideButton:hover 
+{
+    background-color: #fa9031 !important;
+    color : white !important;
+    
+}
+
+.sideButton:hover i
+{
+
+    color : white !important;
+}
+
+.sideCatego
+{
+    color : white !important;
+    border: none !important;
+}
+
+
 
 
 /********************************************************************/
@@ -152,6 +194,7 @@ html,body
     display: flex;
     justify-content: center;
     padding: 10px;
+    background-color: #363636;
 }
 
 .card-body
@@ -212,6 +255,21 @@ html,body
     -ms-user-select:none;
 }
 
+.btnDeletePost
+{
+    background-color: #0000!important;
+    border: 1px solid white;
+}
+
+
+.btnDeletePost:hover
+{
+    background-color: white !important;
+    color :  #fa9031 !important;
+    border: 1px solid white;
+}
+
+
 
 /**************************************************************************/
 
@@ -243,3 +301,83 @@ html,body
 }
 
 /***************************************************************/
+
+
+
+
+/*********************************MODAL********************/
+.modal-body
+{
+    color: black;
+}
+
+.colorInp
+{
+    padding: 10px;
+    height: 40px;
+}
+
+/********************************************************************/
+
+
+/****************************** cardCategory ***************************/
+
+.cardCategory
+{
+    width: 200px !important;
+    height: auto;
+    text-align: center;
+    background-color: #363636;
+    color:#fa9031;
+    font-weight: bold;
+}
+
+.cardCategory:hover
+{
+    border: 2px solid  #fa9031;
+}
+
+
+.categoryColor
+{
+   
+    font-size: 40px;
+    text-align: center;
+}
+
+.categoryTitle
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px !important;
+}
+
+.contPin
+{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 0px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color : white;
+    cursor: pointer;
+}
+
+.contPin:hover
+{   
+    background-color: #fa9031 !important;
+}
+
+.bodyCategory
+{
+    overflow: hidden;
+    padding: 0px !important;
+}
+

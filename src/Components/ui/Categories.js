@@ -1,6 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '../../Actions/postActions';
+import { Icon } from '@iconify/react';
+import penguinIcon from '@iconify-icons/mdi/penguin';
+import { CapitalLetter } from '../../Helpers/capitalLetter';
+
 
 
 //////<<<<<------------------------------------------------``
@@ -8,7 +12,9 @@ import { setCategory } from '../../Actions/postActions';
 const Categories = () => 
 {
 
-    const { categories } = useSelector( state => state.post );
+    const { categories,activeCategory } = useSelector( state => state.post );
+
+    document.body.style.backgroundColor = activeCategory.color;
 
 
 ////////////////////// BTN CATEGORY //////////////////////
@@ -24,6 +30,7 @@ const Categories = () =>
 //////////////////////////////////////////////////////////
 
 
+
 /************************************************************************************************************* */
 
     return (
@@ -36,12 +43,37 @@ const Categories = () =>
 
                     {
                 
-                        categories.map( ( categoryArray ) => {  
+                        categories.map( ( category ) => {  
 
 
-                            return  <div key={ categoryArray._id } className="col-md-3">
+                            return  <div key={ category._id } className="col-md-3">
                                 
-                                        <button className="btn btn-primary form-control mt-4" onClick={ ()=>{ handleChangeCategory( categoryArray.category ) } } >{ categoryArray.category }</button>
+                                        <div className="card cardCategory mb-3" >
+
+                                            <div className="card-body bodyCategory">
+                                                   
+                                                <div className="row">
+
+                                                    <div className="col-md-2 categoryColor">
+
+                                                        <div className="contPin" style={ { backgroundColor : category.color } }>
+                                                            <Icon onClick={ ()=>{ handleChangeCategory( category ) } } icon={penguinIcon} />
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div className="col-md-10 categoryTitle">
+
+                                                        { CapitalLetter( category.categoryTitle ) }
+                                                        
+                                                    </div>
+
+
+                                                </div>
+                                              
+                                            </div>
+
+                                        </div>
 
                                     </div>
                         } )

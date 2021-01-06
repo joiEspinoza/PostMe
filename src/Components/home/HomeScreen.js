@@ -11,6 +11,8 @@ const HomeScreen = () =>
 
     const { activeCategory } = useSelector( state => state.post );
 
+    const { categoryTitle } = activeCategory;
+
     return (
 
 
@@ -18,7 +20,7 @@ const HomeScreen = () =>
 
                 <SideBar/>
 
-                { activeCategory === "" ? <Categories/> : <Category/> }
+                { categoryTitle === "" ? <Categories/> : <Category/> }
                 
             </div>
 

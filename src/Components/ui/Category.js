@@ -14,7 +14,7 @@ const Category = () =>
 
     const { uid } = useSelector( state => state.auth );
 
-    const { category } = useSelector( state => state.post );
+    const { activeCategory } = useSelector( state => state.post );
 
     const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ const Category = () =>
         bodyPost : "",
         likePost : 0,
         datePost : date.getDate() + "/" + ( date.getMonth() + 1 ) + "/" + date.getFullYear(),
-        categoryPost : category,
+        categoryPost : activeCategory.categoryTitle,
         user : uid
     };
 
@@ -67,7 +67,7 @@ const Category = () =>
                                 <form onSubmit={ handlePost }>
 
                                     <div className="form-group">
-                                        <input className="form-control" type="text" name="titlePost" placeholder="Title" value={ titlePost } onChange={ handleInputChange }  />
+                                        <input className="form-control" type="text" name="titlePost" placeholder="Title" autoComplete="off" value={ titlePost } onChange={ handleInputChange }  />
                                     </div>
 
                                     <div className="form-group mt-2">

@@ -128,6 +128,31 @@ const startDeletePost = ( postId ) =>
 const setCategory = ( category ) => ( { type : types.postSetActiveCategory, payload : category } );
 
 
+const startDeletePosts = ( categoryPost ) =>
+{
+    return async ( dispatch ) =>
+    {
+        try 
+        {
+
+            const request = await BackendConnect( "post/delposts", { categoryPost }, "DELETE" );
+
+            const response = await request.json();
+
+            if( response.ok )
+            {
+                dispatch( startLoadPosts() );
+            };
+               
+        } 
+        catch( error ) 
+        {
+            console.log( error )
+            return alert( "Something went wrong" );
+        };
+    };
+};
+
 //////---------------------------------------------->>>>>
 
 export { 
@@ -136,6 +161,7 @@ export {
     startLoadPosts, 
     startDeletePost, 
     startUpdateLike,
-    setCategory
+    setCategory,
+    startDeletePosts
     
 };

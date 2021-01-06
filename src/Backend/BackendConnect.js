@@ -6,7 +6,7 @@ const baseUrl = process.env.REACT_APP_API_BASE_URL;
 //----------------------------------\\ 
 
 
-const BackendConnect = ( endpoint, data, method = "GET" ) =>
+const BackendConnect = ( endpoint, data = {}, method = "GET" ) =>
 {
     
     const url = `${ baseUrl }/${ endpoint }`; //localhost:4030/api/auth/

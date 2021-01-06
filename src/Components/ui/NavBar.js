@@ -36,7 +36,7 @@ const NavBar = () =>
 
                     <input type="text" disabled={ true } className="userNameInput form-control" defaultValue={ name }/>
                     <div className="input-group-append">
-                        <button onClick={ handleLogout } className="btn btnLogout my-2 my-sm-0">Logout</button>
+                        <button onClick={ handleLogout } className="btn btn-dark my-2 my-sm-0">Logout</button>
                     </div>
 
                 </div>
